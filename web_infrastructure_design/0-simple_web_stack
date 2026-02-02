@@ -1,0 +1,19 @@
+# https://imgur.com/a/9ruwpQ0
+
+This web infrastructure consists of a single server hosting a simple web stack.
+The domain name foobar.com has a www A record that points to the server IP
+address 8.8.8.8.
+
+When a user accesses www.foobar.com, the DNS resolves the domain name to the
+server IP address. The user’s browser sends an HTTP or HTTPS request to the
+server. Nginx acts as the web server and receives the request, then forwards it
+to the application server. The application server executes the application
+logic and communicates with the MySQL database to retrieve or store data. The
+response is then sent back to the user through Nginx.
+
+Main issues with this infrastructure:
+- It has a single point of failure (SPOF) because everything is hosted on one
+  server.
+- Maintenance or deployment requires restarting services, which causes
+  downtime.
+- It cannot scale to handle high traffic since there is only one server.
