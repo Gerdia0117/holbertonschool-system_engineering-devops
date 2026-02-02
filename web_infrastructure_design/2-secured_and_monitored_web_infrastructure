@@ -1,0 +1,20 @@
+# https://imgur.com/a/BUQevtk
+
+This infrastructure is secured and monitored to host www.foobar.com. Traffic is
+served over HTTPS using an SSL certificate terminated at the load balancer. Three
+firewalls are used to protect the infrastructure and control network traffic.
+
+The load balancer distributes traffic across two backend servers in an
+Active-Active configuration. Each server runs a web server (Nginx), an
+application server, application files, and a MySQL database. Monitoring agents
+are installed on each server to collect logs and metrics and send them to a
+monitoring service.
+
+Monitoring is used to track server health, detect failures, and measure
+performance metrics such as QPS. Monitoring agents collect data directly from
+the servers and forward it to a centralized system.
+
+Issues with this infrastructure include:
+- SSL termination at the load balancer exposes unencrypted internal traffic
+- Only one MySQL server can accept write operations, creating a SPOF
+- Hosting all components on the same servers can cause resource contention
