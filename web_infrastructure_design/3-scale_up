@@ -1,0 +1,13 @@
+# https://imgur.com/a/5D0LCDJ
+
+This infrastructure is designed to scale up by separating components and adding
+redundancy. Two HAProxy load balancers are configured as a cluster to eliminate
+the load balancer single point of failure and ensure high availability.
+
+The web servers are separated and run only Nginx to handle HTTP requests. The
+application server is isolated to process business logic, improving performance
+and scalability. The database is hosted on its own server to store persistent
+data and avoid resource contention.
+
+Separating components allows each layer to scale independently, improves system
+reliability, and simplifies maintenance.
